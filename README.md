@@ -1,5 +1,6 @@
 # fantastic_Somto
-This is my first commit
+# This is my first commit
+
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -15,7 +16,8 @@ public class Main
 		SnakePanel snakePanel = new SnakePanel();
 		myFrame.add(snakePanel);
 		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-// Set JFrame attributes		
+// Set JFrame attributes
+
 		myFrame.setTitle("SOMTO'S SNAKE");
 		myFrame.setResizable(false);
 		myFrame.pack();
