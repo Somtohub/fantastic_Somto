@@ -1,31 +1,66 @@
 # fantastic_Somto
 # This is my first commit
 
-import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
-import javax.swing.JFrame;
-
-public class Main 
+public class BodyPart 
 {
-	
-	public static void main(String[] args) 
+	private int xCoordinate, yCoordinate, size;
+	public BodyPart(int size)
 	{
-
-		JFrame myFrame = new JFrame();
-		
-		SnakePanel snakePanel = new SnakePanel();
-		myFrame.add(snakePanel);
-		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-// Set JFrame attributes
-
-		myFrame.setTitle("SOMTO'S SNAKE");
-		myFrame.setResizable(false);
-		myFrame.pack();
-		
-		myFrame.setPreferredSize(new Dimension(SnakePanel.WIDTH, SnakePanel.HEIGHT));
-		myFrame.setLocationRelativeTo(null);
-		myFrame.setVisible(true);
-		
+		this.size = size;
 	}
 	
+	public void setPosition(int x, int y)
+	{
+		xCoordinate = x;
+		yCoordinate = y;
+	}
+	
+	public void move (int dx, int dy)
+	{
+		xCoordinate += dx;
+		yCoordinate += dy;
+	}
+	
+	public Rectangle getBound()
+	{
+		return new Rectangle (xCoordinate, yCoordinate, size, size);
+	}
+	
+	public boolean isCollision(BodyPart o)
+	{
+		if (o == this)
+		{
+			return false;
+		}
+		return getBound().intersects(o.getBound());
+	}
+	
+	public void render (Graphics2D g2d)
+	{
+		g2d.fillRect(xCoordinate, yCoordinate, size - 1, size - 1);
+	}
+	
+	public int getX()
+	{
+		return xCoordinate;
+	}
+	
+	public int getY()
+	{
+		return yCoordinate;
+	}
+	
+	public void setX(int x)
+	{
+		xCoordinate = x;
+	}
+	
+	public void setY(int y)
+	{
+		yCoordinate = y;
+	}	
 }
+
