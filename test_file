@@ -404,6 +404,9 @@ public class SnakePanel extends JPanel implements Runnable, KeyListener
 	{
 		
 		
+
+
+		
 	}
 }
 
